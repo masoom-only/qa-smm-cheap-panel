@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA SMM Cheap Panel</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#09090d;color:#fff}
+header{position:sticky;top:0;z-index:10;background:#101016ee;backdrop-filter:blur(12px);padding:18px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #29202a}
+.logo{font-size:21px;font-weight:900}.logo span,h1 span{color:#ff3548}
+nav a{color:#ddd;text-decoration:none;margin:0 12px;font-size:14px}
+button,.btn{background:linear-gradient(120deg,#ff3548,#a90020);color:white;border:0;padding:13px 20px;border-radius:10px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;transition:.3s}
+button:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px #ff354855}
+.hero{min-height:570px;padding:80px 7%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:35px;background:radial-gradient(circle at 80% 40%,#7d102b44,transparent 40%)}
+.hero h1{font-size:clamp(38px,5vw,64px);line-height:1.08;margin:20px 0}
+.hero p,.muted{color:#aaa;line-height:1.8}
+.hero .btn{margin:25px 10px 0 0}
+.login{background:#171720;border:1px solid #44303a;border-radius:22px;padding:28px;max-width:390px;width:100%;margin:auto;box-shadow:0 20px 70px #000}
+.login h2{margin:15px 0 8px}
+.tabs{display:flex;background:#09090e;padding:5px;border-radius:10px;gap:5px}
+.tabs button{flex:1;background:transparent;box-shadow:none}
+.tabs button.active{background:linear-gradient(120deg,#ff3548,#a90020)}
+.login input{width:100%;padding:14px;margin:9px 0;background:#09090e;border:1px solid #39303b;border-radius:9px;color:white;outline:none}
+.login input:focus{border-color:#ff3548;box-shadow:0 0 12px #ff354833}
+.login .submit{width:100%;margin-top:10px}
+.panel{display:none;animation:enter .45s ease}
+.panel.active{display:block}
+@keyframes enter{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.section{padding:75px 7%;text-align:center}
+.section h2{font-size:36px;margin-bottom:12px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-top:35px}
+.card{background:#15151e;border:1px solid #302630;padding:25px 15px;border-radius:17px;transition:.3s}
+.card:hover{transform:translateY(-8px);border-color:#ff3548;box-shadow:0 12px 35px #ff354822}
+.card img{width:43px;height:43px;object-fit:contain;margin-bottom:15px}
+.card h3{margin-bottom:9px}.card p{color:#999;font-size:13px;line-height:1.6}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.feature{background:#15151e;padding:25px;border-radius:15px;border:1px solid #302630}
+.feature h3{color:#ff5968;margin-bottom:10px}
+.cta{background:linear-gradient(120deg,#35101b,#17131d);padding:45px 20px;border-radius:20px;margin:20px 7% 75px;text-align:center}
+footer{padding:25px;text-align:center;color:#888;border-top:1px solid #29202a}
+.reveal{opacity:0;transform:translateY(35px);transition:.8s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px}.cards{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}nav{display:none}}
+@media(max-width:420px){.cards{grid-template-columns:1fr 1fr}.section h2{font-size:28px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">QA SMM <span>CHEAP PANEL</span></div>
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Platforms</a>
+<a href="#features">Features</a>
+</nav>
+<a class="btn" href="#account">Login</a>
+</header>
+
+<section class="hero" id="home">
+<div class="reveal">
+<p style="color:#ff6573;font-weight:bold">YOUR SOCIAL MEDIA GROWTH PARTNER</p>
+<h1>Grow Your Social Presence <span>Smarter.</span></h1>
+<p>Welcome to QA SMM Cheap Panel. Explore social media marketing services with a simple and user-friendly dashboard.</p>
+<a class="btn" href="#services">Explore Platforms</a>
+<a class="btn" href="#account">Create Account</a>
+</div>
+
+<div class="login reveal" id="account">
+<div class="tabs">
+<button class="active" id="lt" onclick="switchTab('login')">Login</button>
+<button id="st" onclick="switchTab('signup')">Sign Up</button>
+</div>
+<div class="panel active" id="login">
+<h2>Welcome Back!</h2>
+<p class="muted">Login to your account</p>
+<input placeholder="Username or Email">
+<input type="password" placeholder="Password">
+<button class="submit" onclick="preview()">Login to Dashboard</button>
+<p class="muted" style="text-align:center;font-size:12px;margin-top:15px">New here? <a href="#" onclick="switchTab('signup');return false" style="color:#ff5968">Create Account</a></p>
+</div>
+<div class="panel" id="signup">
+<h2>Create Account</h2>
+<p class="muted">Join QA SMM Cheap Panel</p>
+<input placeholder="Username">
+<input type="email" placeholder="Email Address">
+<input type="password" placeholder="Create Password">
+<button class="submit" onclick="preview()">Create Account</button>
+<p class="muted" style="text-align:center;font-size:12px;margin-top:15px">Already registered? <a href="#" onclick="switchTab('login');return false" style="color:#ff5968">Login</a></p>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="reveal">
+<h2>Social Media Platforms</h2>
+<p class="muted">Explore our supported platforms</p>
+</div>
+<div class="cards">
+<div class="card reveal"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok"><h3>TikTok</h3><p>Explore TikTok marketing services</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram"><h3>Instagram</h3><p>Explore Instagram services</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook"><h3>Facebook</h3><p>Explore Facebook services</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/youtube/FF0033" alt="YouTube"><h3>YouTube</h3><p>Explore YouTube services</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp"><h3>WhatsApp</h3><p>Business communication tools</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/telegram/26A5E4" alt="Telegram"><h3>Telegram</h3><p>Explore Telegram services</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/x/ffffff" alt="X"><h3>X (Twitter)</h3><p>Explore X marketing services</p></div>
+<div class="card reveal"><img src="https://cdn.simpleicons.org/spotify/1ED760" alt="Spotify"><h3>Spotify</h3><p>Explore music promotion options</p></div>
+</div>
+</section>
+
+<section class="section" id="features">
+<div class="reveal"><h2>Why Choose QA SMM?</h2><p class="muted">Simple tools for managing your orders</p></div>
+<div class="features">
+<div class="feature reveal"><h3>Easy Ordering</h3><p class="muted">A simple and clear order experience.</p></div>
+<div class="feature reveal"><h3>PKR Currency</h3><p class="muted">Panel prices displayed in Pakistani Rupees.</p></div>
+<div class="feature reveal"><h3>Order Tracking</h3><p class="muted">View your order progress in one place.</p></div>
+</div>
+</section>
+
+<section class="cta reveal">
+<h2>Ready to Get Started?</h2>
+<p class="muted" style="margin:12px">Your social media management starts here.</p>
+<a class="btn" href="#account">Login / Sign Up</a>
+</section>
+
+<footer>© 2026 QA SMM Cheap Panel. All rights reserved.</footer>
+
+<script>
+function switchTab(type){
+const login=type==='login';
+document.getElementById('login').classList.toggle('active',login);
+document.getElementById('signup').classList.toggle('active',!login);
+document.getElementById('lt').classList.toggle('active',login);
+document.getElementById('st').classList.toggle('active',!login);
+}
+function preview(){
+alert('This is a design preview. Real login and signup will be connected after secure backend setup.');
+}
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
